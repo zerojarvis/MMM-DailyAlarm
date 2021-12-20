@@ -54,7 +54,7 @@ git clone https://github.com/eouia/MMM-DailyAlarm
         time: "18:00:00",
         showAt: "12:00", // You can control showing/hiding of this event with this fields.
         hideAt: "18:30",
-        exceptDays: ["SUN", "SAT"], // You can except this event on specific day.
+        onDays: ["SUN", "SAT"], // Alarm will only activate on these ON these specific day. (if NOT set, will be active on ALL days).
         //available values : array of "SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"
         beforeText: "Go Home",
         afterText: "I'm going home",
