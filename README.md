@@ -59,6 +59,7 @@ git clone https://github.com/eouia/MMM-DailyAlarm
         beforeText: "Go Home",
         afterText: "I'm going home",
         humanize:true, //If set as true, remain/past time is written as human-readable.
+        humanize_precise:true, //If set as true, remain/past time is written as human-readable (with more precision).
         alarmNotification: { //You can send notification also.
           notification: "SHOW_ALERT",
           payload: {
