@@ -7,7 +7,7 @@ Module.register("MMM-DailyAlarm", {
       time: "",
       showAt: "00:00:00",
       hideAt: "23:59:59",
-      exceptDays: [], // [] for all days, available values : MON, TUE, WED, THU, FRI, SAT, SUN
+      onDays: [], // [] for all days, available values : MON, TUE, WED, THU, FRI, SAT, SUN
       customClass: "", //If you want to set custom CSS class to this event.
       beforeText: "Alarm",
       afterText: "", //If omitted or null or "", `beforeText` will be used after time.
@@ -110,9 +110,9 @@ Module.register("MMM-DailyAlarm", {
     const DAYS = ["SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT", "SUN"]
     var now = new moment()
     var isVisible = (now.isAfter(ev.showAt) && now.isBefore(ev.hideAt))
-    var isExcept = ev.exceptDays.includes(DAYS[ev.time.isoWeekday()])
+    var isDay = ev.onDays.includes(DAYS[ev.time.isoWeekday()])
     var isPassed = now.isAfter(ev.time)
-    if (!isExcept) {
+    if (isDay) {
       if (isVisible) {
         var event = document.createElement("div")
         event.className = ev.customClass
