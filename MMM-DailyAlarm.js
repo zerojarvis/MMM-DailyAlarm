@@ -25,7 +25,11 @@ Module.register("MMM-DailyAlarm", {
   },
 
   getScripts: function() {
-    return ["moment.js"]
+    var self = this;
+    return [
+      "moment.js",
+      self.file('/scripts/moment-precise-range.js')
+    ]
   },
 
   start: function() {
@@ -127,7 +131,11 @@ Module.register("MMM-DailyAlarm", {
           diff = ev.time.diff(now)
         }
 
-        if (ev.humanize) {
+        if (ev.humanize_precise) {
+          time.innerHTML = moment.preciseDiff(ev.time,now)
+          time.className += " humanized_precise"
+        }
+        else if (ev.humanize) {
           diff = ev.time.diff(now)
           var duration = moment.duration(diff)
           time.innerHTML = duration.humanize(true)
